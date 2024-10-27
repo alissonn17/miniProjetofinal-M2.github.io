@@ -1,0 +1,27 @@
+*{
+    margin: 3;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#inputs{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
