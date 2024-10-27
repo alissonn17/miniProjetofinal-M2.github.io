@@ -16,11 +16,15 @@
         <section id="container">
             <h1>Digite aqui uma frase de reflexão:</h1>
             <section id="inputs">
-                <label>Nome</label>
-                <input placeholder="Digite seu nome.">
-                <label>Frase</label>
+                <label for="name">Nome</label>
+                <input id="name" placeholder="Digite seu nome.">
+                <label for="frase">Frase</label>
                 <input id="frase" placeholder="Digite sua frase"><br>
-                <button id="botao">Concluido</button>
+                <button id="submit">Concluido</button>
+            </section>
+            <section id="result">
+                <span id="spanName"></span>
+                <span id="spanFrase"></span>
             </section>
             
         </section>
