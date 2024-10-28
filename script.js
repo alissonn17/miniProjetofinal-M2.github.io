@@ -1,5 +1,7 @@
 const button = document.getElementById("submit")
 const muda = document.getElementById("update")
+const apaga = document.getElementById("delete"
+)
 const nome = document.getElementById("name")
 const sentence = document.getElementById("frase")
 //const writeName = document.getElementById("spanName")
@@ -17,7 +19,7 @@ class Frase{
         this.nome = nameUser.value
         this.frase = sentenceUser.value
     }
-    read(){
+    read(c){
         
         const writeName = document.createElement("span")
         const writeSentence = document.createElement("span")
@@ -28,7 +30,7 @@ class Frase{
         const br = document.createElement("br")
         
         
-        num.innerText = i+1
+        num.innerText = c + 1
         
         const dados = document.createElement("section")     
         
@@ -59,24 +61,39 @@ class Frase{
         resultAtual.push(writeSentence.innerText)
         
     }
-    update(){
-    
+    update(l){
+     let escolhe = prompt("Oque você quer alterar?")
+      while (escolhe.toLowerCase() != "nome" &&  escolhe.toLowerCase() != "frase"){
+       escolhe = prompt("Oque você quer alterar?")
+      }
+      
+      if (escolhe == "nome"){
+        this.nome = prompt("Digite o novo nome:")
+        this.read(l)
+      }else{
+        this.frase = prompt("Digite a nova frase:")
+        this.read(l)
+      }
+    }
+    del(){
+      alert(`"${this.nome}" com frase "${this.frase}" deletado com sucesso!`)
     }
 }
 
 function get(){
     user.push(new Frase(nome,sentence))   
-    user[i].read()
-    i += 1
+    user[i].read(i)
     resultAtual = []
+    i += 1
 }
 
 button.addEventListener("click",()=>{
     if (muda.style.display = ("none")){
-      muda.style.display = "flex"
-      muda.style.justifyContent = "center"
-      muda.style.width = "50px"
-      muda.style.flexDirection = "colum"
+      estiloButton(muda)
+    }
+    
+    if (apaga.style.display = ("none")){
+      estiloButton(apaga)
     }
     
     get()
@@ -85,14 +102,20 @@ button.addEventListener("click",()=>{
 muda.addEventListener("click", ()=>{
       let u = prompt("Digite o número que quer alterar:") - 1
       
-      let escolhe = prompt("Oque você quer alterar?")
-      while (escolhe.toLowerCase() != "nome" &&  escolhe.toLowerCase() != "frase"){
-       escolhe = prompt("Oque você quer alterar?")
-      }
-      
-      if (escolhe == "nome"){
-        user[u].update()
-      }else{
-        user[u].update()
-      }
+      user[u].update(u)
 })
+
+apaga.addEventListener("click", ()=>{
+      let u = prompt("Digite o número que quer apagar") - 1
+      
+      user[u].del()
+      user.splice(user[u])
+      i -= 1
+})
+
+function estiloButton(bot){
+  bot.style.display = "flex"
+  bot.style.justifyContent = "center"
+  bot.style.width = "50px"
+  bot.style.flexDirection = "colum"
+}

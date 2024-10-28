@@ -41,3 +41,7 @@ header{
 #update{
   display: none;
 }
+
+#delete{
+  display: none;
+}
