@@ -38,7 +38,8 @@ class Frase{
         
         this.num.innerText = c + 1
         
-        const dados = document.createElement("section")     
+        const dados = document.createElement("section")
+        dados.setAttribute("class", "show")     
         
         dados.style.display = "flex"
         dados.style.flexDirection = "column"
@@ -78,22 +79,36 @@ class Frase{
       
       if (escolhe == "nome"){
         this.nome = prompt("Digite o novo nome:")
+
+        //aviso
+        const upd = document.createElement("h4")
+        upd.innerText = "Nome alterado!"
+        resultado.appendChild(upd)
+        upd.style.color = "red"
         this.read(l)
       }else{
         this.frase = prompt("Digite a nova frase:")
+
+
+        //aviso
+        const upd = document.createElement("h4")
+        upd.innerText = "Frase alterada!"
+        resultado.appendChild(upd)
+        upd.style.color = "red"
         this.read(l)
       }
     }
     // confirma delete
     del(){
+        //aviso
       const remo = document.createElement("h4")
-      remo.innerText = `${this.num.innerText} - ${this.nome} e ${this.frase} deletado!`
+      remo.innerText = `${this.num.innerText} - Nome ${this.nome} com frase ${this.frase} deletado!`
       resultado.appendChild(remo)
       remo.style.color = "red"
       
       console.log(id)
       
-      alert(`"${this.nome}" com frase "${this.frase}" deletado com sucesso!`)
+      alert(`${this.nome} com frase ${this.frase} deletado com sucesso!`)
       
     }
     atualizaPos(db){
@@ -129,14 +144,26 @@ button.addEventListener("click",()=>{
 // atualiza elemento e frase
 muda.addEventListener("click", ()=>{
       let u = prompt("Digite o número que quer alterar:") - 1
-      
+
+      //checa number
+      while (user.length<=u){
+        alert("Número inserido inválido, digite novamente!")
+        u = prompt("Digite o número que quer alterar:") - 1
+      }
+
       user[u].update(u)
 })
 
 // deleta elemento e frase
 apaga.addEventListener("click", ()=>{
       let u = prompt("Digite o número que quer apagar") - 1
-      
+
+      //checa number
+      while (user.length<=u){
+        alert("Número inserido inválido, digite novamente!")
+        u = prompt("Digite o número que quer apagar:") - 1
+      }
+
       // mantem Index 
       i -= 1
       
