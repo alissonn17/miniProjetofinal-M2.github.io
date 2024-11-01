@@ -73,11 +73,13 @@ class Frase{
     // atualiza elemento
     update(l){
      let escolhe = prompt("Oque você quer alterar?")
+     //checa nome
       while (escolhe.toLowerCase() != "nome" &&  escolhe.toLowerCase() != "frase"){
-       escolhe = prompt("Oque você quer alterar?")
+        alert("Inválido, digite nome ou frase!")
+        escolhe = prompt("Oque você quer alterar?")
       }
       
-      if (escolhe == "nome"){
+      if (escolhe.toLowerCase() == "nome"){
         this.nome = prompt("Digite o novo nome:")
 
         //aviso
@@ -88,7 +90,6 @@ class Frase{
         this.read(l)
       }else{
         this.frase = prompt("Digite a nova frase:")
-
 
         //aviso
         const upd = document.createElement("h4")
