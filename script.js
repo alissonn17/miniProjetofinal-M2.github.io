@@ -103,7 +103,7 @@ class Frase{
     del(){
         //aviso
       const remo = document.createElement("h4")
-      remo.innerText = `${this.num.innerText} - Nome ${this.nome} com frase ${this.frase} deletado!
+      remo.innerText = `${this.num.innerText} - Nome ${this.nome.toUpperCase()} com frase ${this.frase.toUpperCase()} deletado!
       A seguinte frase veio para o num ${this.num.innerText}!`
       resultado.appendChild(remo)
       remo.style.color = "red"
